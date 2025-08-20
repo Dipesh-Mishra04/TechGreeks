@@ -1,51 +1,56 @@
-import { motion } from "framer-motion";
+import React, { useState } from "react";
 
-export default function Navbar() {
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleClick = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+      setIsOpen(false); // mobile menu close ho jaye click ke baad
+    }
+  };
+
   return (
-    <motion.nav
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className="w-full bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 shadow-lg"
-    >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <nav className="bg-black text-white shadow-md fixed w-full top-0 left-0 z-50">
+      <div className="container mx-auto flex justify-between items-center p-4">
         {/* Logo */}
-        <motion.h1
-          whileHover={{ scale: 1.1 }}
-          className="text-2xl font-bold text-white cursor-pointer tracking-wide"
-        >
-          QuizzCrakerz
-        </motion.h1>
+        <h1 className="text-2xl font-bold text-purple-400 cursor-pointer" onClick={() => handleClick("home")}>
+          Nirvana 2.0
+        </h1>
 
-        {/* Menu Items */}
-        <ul className="hidden md:flex space-x-10 text-white font-medium text-lg">
-          {["Home", "About", "Quizzes", "Contact"].map((item, index) => (
-            <motion.li
-              key={index}
-              whileHover={{
-                scale: 1.2,
-                color: "#FFD700",
-                textShadow: "0px 0px 8px #FFD700",
-              }}
-              className="cursor-pointer transition duration-300"
-            >
-              {item}
-            </motion.li>
-          ))}
+        {/* Desktop Menu */}
+        <ul className="hidden md:flex space-x-8 text-lg">
+          <li className="hover:text-purple-400 cursor-pointer" onClick={() => handleClick("home")}>Home</li>
+          <li className="hover:text-purple-400 cursor-pointer" onClick={() => handleClick("events")}>Events</li>
+          <li className="hover:text-purple-400 cursor-pointer" onClick={() => handleClick("gallery")}>Gallery</li>
+          <li className="hover:text-purple-400 cursor-pointer" onClick={() => handleClick("about")}>About</li>
+          <li className="hover:text-purple-400 cursor-pointer" onClick={() => handleClick("contact")}>Contact</li>
         </ul>
 
-        {/* Button */}
-        <motion.button
-          whileHover={{
-            scale: 1.1,
-            backgroundColor: "#FFD700",
-            color: "#000",
-          }}
-          className="bg-white text-purple-700 px-5 py-2 rounded-full font-semibold shadow-md transition duration-300"
+        {/* Mobile Hamburger */}
+        <div
+          className="md:hidden flex flex-col cursor-pointer"
+          onClick={() => setIsOpen(!isOpen)}
         >
-          Get Started
-        </motion.button>
+          <span className="w-6 h-1 bg-white mb-1"></span>
+          <span className="w-6 h-1 bg-white mb-1"></span>
+          <span className="w-6 h-1 bg-white"></span>
+        </div>
       </div>
-    </motion.nav>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <ul className="md:hidden bg-black flex flex-col space-y-4 p-4 text-lg">
+          <li className="hover:text-purple-400 cursor-pointer" onClick={() => handleClick("home")}>Home</li>
+          <li className="hover:text-purple-400 cursor-pointer" onClick={() => handleClick("events")}>Events</li>
+          <li className="hover:text-purple-400 cursor-pointer" onClick={() => handleClick("gallery")}>Gallery</li>
+          <li className="hover:text-purple-400 cursor-pointer" onClick={() => handleClick("about")}>About</li>
+          <li className="hover:text-purple-400 cursor-pointer" onClick={() => handleClick("contact")}>Contact</li>
+        </ul>
+      )}
+    </nav>
   );
-}
+};
+
+export default Navbar;

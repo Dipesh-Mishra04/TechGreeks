@@ -29,7 +29,7 @@ export default function Footer() {
 
         </motion.div>
 
-        © {new Date().getFullYear()} QuizzCrakerz. All Rights Reserved.
+        © {new Date().getFullYear()} TechGreeks. All Rights Reserved.
       </div>
     </footer>
   );
