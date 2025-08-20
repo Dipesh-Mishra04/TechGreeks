@@ -12,8 +12,6 @@ export default function App() {
         <Hero />
       </main>
       <Home/>
-      <Event/>
-      <Contact/>
       <Footer />
     </div>
   );
