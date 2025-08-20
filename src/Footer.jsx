@@ -14,16 +14,10 @@ export default function Footer() {
           className="flex justify-center gap-6 md:mt-0"
 
         >
-        <a href="#" className="text-gray-400 hover:text-white transition text-3xl">
-            <FaGithub />
-        </a>
-        <a href="#" className="text-gray-400 hover:text-blue-400 transition text-3xl">
+        <a href="https://www.linkedin.com/company/techgeeksgehu/" className="text-gray-400 hover:text-blue-400 transition text-3xl">
             <FaLinkedin />
         </a>
-        <a href="#" className="text-gray-400 hover:text-sky-400 transition text-3xl">
-            <FaTwitter />
-        </a>
-        <a href="#" className="text-gray-400 hover:text-pink-400 transition text-3xl">
+        <a href="https://www.instagram.com/techgeeksgehu?igsh=djV6OW9zeG93eDc2" className="text-gray-400 hover:text-pink-400 transition text-3xl">
             <FaInstagram />
         </a>
 

@@ -14,10 +14,13 @@ const Navbar = () => {
   return (
     <nav className="bg-black text-white shadow-md fixed w-full top-0 left-0 z-50">
       <div className="container mx-auto flex justify-between items-center p-4">
-        {/* Logo */}
-        <h1 className="text-2xl font-bold text-purple-400 cursor-pointer" onClick={() => handleClick("home")}>
-          Nirvana 2.0
-        </h1>
+        {/* Logo + Text */}
+        <div className="flex items-center cursor-pointer" onClick={() => handleClick("home")}>
+          <img src="/logo_color.png" alt="Logo" className="w-10 h-10 mr-2" />
+          <h1 className="text-2xl font-bold text-purple-400">
+            Nirvana 2.0
+          </h1>
+        </div>
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-8 text-lg">

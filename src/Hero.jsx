@@ -4,6 +4,14 @@ import { OrbitControls, Float, MeshDistortMaterial, Sphere, Stars } from "@react
 import { motion } from "framer-motion";
 
 export default function Hero() {
+  // 👇 Smooth scroll handler
+  const handleScrollToHome = () => {
+    const homeSection = document.getElementById("home");
+    if (homeSection) {
+      homeSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="relative w-full h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 flex items-center justify-center overflow-hidden">
 
@@ -39,6 +47,7 @@ export default function Hero() {
           className="mt-10 px-10 py-4 bg-gradient-to-r from-purple-600 to-pink-500 text-white font-semibold rounded-2xl shadow-[0_0_20px_rgba(147,51,234,0.6)] hover:shadow-[0_0_40px_rgba(236,72,153,0.8)] transition"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
+          onClick={handleScrollToHome}   // ✅ Smooth scroll trigger
         >
           Get Started
         </motion.button>
